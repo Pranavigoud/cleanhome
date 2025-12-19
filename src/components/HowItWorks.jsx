@@ -1,72 +1,83 @@
 import React from 'react';
-import { Calendar, Building2, Briefcase } from 'lucide-react';
+import { User, Calendar, Sofa } from 'lucide-react';
 
 export default function HowItWorks() {
   const steps = [
     {
       id: 1,
-      title: 'Book Online',
-      description: 'Select your date and time in 60 seconds. Secure payment and instant confirmation.',
-      icon: Calendar,
+      title: 'Choose Service',
+      description: 'Select from our wide range of cleaning or gardening packages.',
+      icon: User,
+      borderColor: 'border-teal-600',
+      iconColor: 'text-teal-600',
+      borderColorHex: '#0D6B7D',
+      iconColorHex: '#0D6B7D',
     },
     {
       id: 2,
-      title: 'We Clean',
-      description: 'Our vetted professional arrives equipped with eco-friendly supplies.',
-      icon: Building2,
+      title: 'Select Date & Time',
+      description: 'Pick a convenient slot. We are available on weekends too!',
+      icon: Calendar,
+      borderColor: 'border-teal-600',
+      iconColor: 'text-teal-600',
+      borderColorHex: '#0D6B7D',
+      iconColorHex: '#0D6B7D',
     },
     {
       id: 3,
-      title: 'You Relax',
-      description: 'Come home to a sparkling house and enjoy your free time.',
-      icon: Briefcase,
+      title: 'Sit Back & Relax',
+      description: 'Our professionals will handle the work while you enjoy your time.',
+      icon: Sofa,
+      borderColor: 'border-green-600',
+      iconColor: 'text-green-600',
     },
   ];
 
   return (
-    <section className="bg-white py-16 sm:py-20 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="bg-gray-50 py-16 sm:py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16 px-2 sm:px-0">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-3 sm:mb-4">
-            Cleaning made simple
+        <div className="text-center mb-16 sm:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+            How It Works
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600">
-            We've optimized every step of the process so you can reclaim your time.
+          <p className="text-base sm:text-lg text-gray-600">
+            Easy booking process in just 3 simple steps
           </p>
         </div>
 
         {/* Steps Container */}
         <div className="relative">
-          {/* Dashed connecting line - hidden on mobile */}
-          <div className="hidden lg:block absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+          {/* Connecting lines - hidden on mobile */}
+          <div className="hidden lg:block absolute top-12 left-0 right-0 flex items-center justify-between px-24">
+            <div className="flex-1 h-0. bg-gray-300"></div>
+            <div className="flex-1 h-0.5 bg-gray-300"></div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8">
-            {steps.map((step, index) => {
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-8">
+            {steps.map((step) => {
               const IconComponent = step.icon;
               return (
-                <div key={step.id} className="flex flex-col items-center text-center relative z-10">
+                <div
+                  key={step.id}
+                  className="flex flex-col items-center text-center"
+                >
                   {/* Icon Circle */}
-                  <div className="mb-8 flex flex-col items-center">
-                    <div className="w-24 h-24 bg-gradient-to-br from-gray-50 to-gray-100 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow mb-6">
-                      <IconComponent className="w-12 h-12 text-yellow-400" strokeWidth={1.5} />
+                  <div className="mb-8 relative z-10">
+                    <div className={`w-28 h-28 rounded-full border-4 ${step.borderColor} flex items-center justify-center bg-white hover:shadow-lg transition-shadow`}>
+                      <IconComponent className={`w-14 h-14 ${step.iconColor}`} strokeWidth={1.5} />
                     </div>
-                    
-                    {/* Dashed lines connecting to center on mobile */}
-                    {index < steps.length - 1 && (
-                      <div className="md:hidden w-0.5 h-8 bg-dashed border-l-2 border-dashed border-gray-300 mb-4"></div>
-                    )}
                   </div>
 
-                  {/* Content */}
-                  <div>
-                    <h3 className="text-2xl font-bold text-black mb-3">
-                      {step.id}. {step.title}
-                    </h3>
-                    <p className="text-gray-600 text-base leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
+                  {/* Title with number */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
+                    {step.id}. {step.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
               );
             })}

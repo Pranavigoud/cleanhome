@@ -285,100 +285,96 @@ export default function Hero() {
   };
 
   return (
-    <section style={{ backgroundColor: '#FFFDF6' }}>
+    <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Content */}
           <div>
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full mb-6">
-              <span className="w-2 h-2 bg-black rounded-full"></span>
-              <span className="font-bold text-sm">
-                #1 RATED CLEANING SERVICE
-              </span>
-            </div>
-
             {/* Main Heading */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4 sm:mb-6 leading-tight">
-              Sparkling Homes,<br />
-              <span className="relative">
-                Zero Stress.
-                <span className="absolute bottom-1 sm:bottom-2 left-0 w-16 sm:w-24 h-1 bg-yellow-400"></span>
-              </span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+              Professional
+              <br />
+              <span style={{ color: '#0D6B7D' }}>Home Cleaning &</span>
+              <br />
+              <span className="text-green-600">Gardening</span>
+              <br />
+              <span className="text-black">Services</span>
             </h1>
 
             {/* Subheading */}
-            <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
-              Experience the joy of a spotless home without lifting a finger. Professional, vetted cleaners starting at just $89.
+            <p className="text-base sm:text-lg text-gray-700 mb-8 sm:mb-10 leading-relaxed">
+              Trusted experts for a cleaner home and greener outdoors. Experience premium service with skilled professionals, eco-friendly products, and guaranteed satisfaction.
             </p>
 
-            {/* CTA Section */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10">
-              <div className="flex-1 flex items-center gap-3 bg-gray-100 px-4 py-3 rounded-full min-h-[48px] sm:min-h-auto">
-                <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0" />
-                <input
-                  type="text"
-                  placeholder="Enter your zip code"
-                  value={zipCode}
-                  onChange={(e) => setZipCode(e.target.value)}
-                  className="bg-transparent outline-none flex-1 text-gray-800 placeholder-gray-400 text-sm sm:text-base"
-                />
-              </div>
-              <button onClick={handleGetStarted} className="bg-yellow-400 text-black font-bold px-6 sm:px-8 py-3 rounded-full hover:bg-yellow-500 transition flex items-center justify-center gap-2 whitespace-nowrap min-h-[48px] text-sm sm:text-base active:scale-95">
-                Get Started
-                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
-              </button>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <a href="#services" className="text-gray-800 hover:text-blue-600 font-bold flex items-center gap-2 text-sm sm:text-base transition">
+                View Services <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
 
-            {/* Testimonials Section */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-              {/* Avatar Group */}
+            {/* Customer Avatars */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <div className="flex -space-x-3">
-                {/* Avatar placeholders - replace with actual images */}
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white flex items-center justify-center text-white font-bold">
-                  A
+                {/* Avatar placeholders */}
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
+                  J
                 </div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white flex items-center justify-center text-white font-bold">
-                  B
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
+                  S
                 </div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-600 border-2 border-white flex items-center justify-center text-white font-bold">
-                  C
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
+                  R
                 </div>
                 <div className="w-10 h-10 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-gray-700 font-bold text-sm">
                   +2k
                 </div>
               </div>
-              <p className="text-gray-700 font-medium">
-                Trusted by 2,000+ happy neighbors
+              <p className="text-gray-700 font-medium text-sm sm:text-base">
+                Happy customers across India
               </p>
             </div>
           </div>
 
-          {/* Right Content - Hero Image */}
-          <div className="relative hidden lg:block">
-            {/* Main Image Container */}
-            <div className="bg-gradient-to-br from-gray-200 to-gray-300 rounded-3xl overflow-hidden shadow-2xl relative">
-              {/* Hero Image */}
-              <img
-                src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                alt="Modern minimalist living room with clean design and natural light"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          {/* Right Content - Illustration Section */}
+          <div className="relative hidden lg:flex lg:items-center lg:justify-center">
+            {/* Illustration Background */}
+            <div className="relative w-full">
+              {/* Teal curved background */}
+              <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-teal-600 rounded-3xl overflow-hidden shadow-2xl relative h-96 lg:h-full lg:min-h-96 flex items-center justify-center p-8">
+                {/* Placeholder for illustration - using SVG or image */}
+                <div className="relative w-full h-full flex flex-col items-center justify-center">
+                  {/* Professional illustration placeholder */}
+                  <svg className="w-full h-full max-w-xs" viewBox="0 0 300 300" fill="none">
+                    {/* Two professionals with cleaning supplies illustration */}
+                    {/* Left person */}
+                    <circle cx="80" cy="80" r="25" fill="#F3E8FF" />
+                    <rect x="65" y="110" width="30" height="50" fill="#FFE4C4" rx="5" />
+                    <rect x="55" y="160" width="15" height="40" fill="#FFE4C4" />
+                    <rect x="90" y="160" width="15" height="40" fill="#FFE4C4" />
+                    
+                    {/* Right person */}
+                    <circle cx="220" cy="80" r="25" fill="#F3E8FF" />
+                    <rect x="205" y="110" width="30" height="50" fill="#FFE4C4" rx="5" />
+                    <rect x="195" y="160" width="15" height="40" fill="#FFE4C4" />
+                    <rect x="230" y="160" width="15" height="40" fill="#FFE4C4" />
+                    
+                    {/* Cleaning supplies */}
+                    <rect x="40" y="140" width="8" height="80" fill="#4A90E2" />
+                    <circle cx="50" cy="170" r="15" fill="#FFD700" />
+                    
+                    <rect x="252" y="140" width="8" height="80" fill="#FFD700" />
+                    <circle cx="262" cy="170" r="15" fill="#4A90E2" />
+                  </svg>
 
-            {/* Satisfaction Badge */}
-            <div className="absolute bottom-6 right-6 bg-white rounded-2xl shadow-lg p-4 border-2 border-green-500">
-              <div className="flex items-center gap-3">
-                <div className="bg-green-500 p-2 rounded-full">
-                  <Check className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="font-bold text-gray-800 text-sm">
-                    100% Satisfaction
-                  </p>
-                  <p className="text-gray-600 text-xs">
-                    Money-back guarantee
-                  </p>
+                  {/* Eco-friendly badge */}
+                  <div className="absolute bottom-6 left-6 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-2">
+                    <span className="text-2xl">♻️</span>
+                    <div>
+                      <p className="font-bold text-gray-800 text-sm">Products</p>
+                      <p className="text-gray-600 text-xs">100% Eco-Friendly</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

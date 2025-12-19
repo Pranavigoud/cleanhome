@@ -1,0 +1,119 @@
+import React, { useState } from 'react';
+import { X } from 'lucide-react';
+
+export default function GardeningPropertyTypeModal({ isOpen, onClose, onNext }) {
+  const [selectedProperty, setSelectedProperty] = useState('');
+  const [otherValue, setOtherValue] = useState('');
+
+  const propertyTypes = [
+    { id: 'allotment', label: 'Allotment' },
+    { id: 'communal', label: 'Communal garden' },
+    { id: 'commercial', label: 'Office or commercial garden' },
+    { id: 'public', label: 'Public garden' },
+    { id: 'residential', label: 'Residential garden' },
+    { id: 'other', label: 'Other' },
+  ];
+
+  const handleContinue = () => {
+    if (selectedProperty && onNext) {
+      const value = selectedProperty === 'other' ? otherValue : selectedProperty;
+      onNext(value);
+      setSelectedProperty('');
+      setOtherValue('');
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/50 bg-opacity-50 z-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl max-w-sm w-full max-h-[80vh] overflow-hidden relative">
+        {/* Close Button */}
+        <div className="absolute top-3 right-3 z-10">
+          <button
+            onClick={onClose}
+            className="p-1.5 hover:bg-gray-100 rounded-full transition"
+          >
+            <X className="w-5 h-5 text-gray-600" />
+          </button>
+        </div>
+
+        {/* Image Section */}
+        <div className="w-full h-24 bg-cover bg-center relative overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800&h=300&fit=crop"
+            alt="Gardening"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Content Section */}
+        <div className="p-3 sm:p-4">
+          {/* Progress Bar */}
+          <div className="flex gap-2 mb-3">
+            <div className="h-1 flex-1 bg-blue-600 rounded-full"></div>
+            <div className="h-1 flex-1 bg-gray-300 rounded-full"></div>
+          </div>
+
+          {/* Title */}
+          <h2 className="text-lg sm:text-xl font-bold text-center text-gray-900 mb-3">
+            What kind of property needs gardening services?
+          </h2>
+
+          {/* Property Type Options */}
+          <div className="space-y-1.5 mb-3">
+            {propertyTypes.map((type) => (
+              <label
+                key={type.id}
+                className="flex items-center p-2 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all"
+              >
+                <input
+                  type="radio"
+                  name="propertyType"
+                  value={type.id}
+                  checked={selectedProperty === type.id}
+                  onChange={(e) => setSelectedProperty(e.target.value)}
+                  className="w-4 h-4 cursor-pointer"
+                />
+                <span className="ml-2 text-xs sm:text-sm text-gray-700 font-medium">
+                  {type.label}
+                </span>
+              </label>
+            ))}
+          </div>
+
+          {/* Other Input */}
+          {selectedProperty === 'other' && (
+            <div className="mb-3 p-2 bg-gray-50 rounded-lg border border-gray-200">
+              <label className="block text-xs font-medium text-gray-700 mb-1.5">
+                Please specify:
+              </label>
+              <input
+                type="text"
+                value={otherValue}
+                onChange={(e) => setOtherValue(e.target.value)}
+                placeholder="Enter property type"
+                className="w-full px-2 py-1.5 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-xs"
+              />
+            </div>
+          )}
+
+          {/* Continue Button */}
+          <div className="flex justify-end">
+            <button
+              onClick={handleContinue}
+              disabled={!selectedProperty || (selectedProperty === 'other' && !otherValue.trim())}
+              className="px-6 py-2 rounded-lg font-semibold text-white text-sm transition-all"
+              style={{
+                backgroundColor: (selectedProperty && (selectedProperty !== 'other' || otherValue.trim())) ? '#0D6B7D' : '#D1D5DB',
+                cursor: (selectedProperty && (selectedProperty !== 'other' || otherValue.trim())) ? 'pointer' : 'not-allowed',
+              }}
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
