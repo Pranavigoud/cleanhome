@@ -32,9 +32,9 @@ export default function GardeningPropertyTypeModal({ isOpen, onClose, onNext, pr
         <div className="absolute top-3 right-3 z-10">
           <button
             onClick={onClose}
-            className="p-1.5 hover:bg-gray-100 rounded-full transition"
+            className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition duration-200"
           >
-            <X className="w-5 h-5 text-gray-600" />
+            <X className="w-5 h-5 text-gray-700" />
           </button>
         </div>
 

@@ -6,13 +6,13 @@ export default function BedroomsModal({ isOpen, onClose, onBack, onShowBathrooms
   const [otherText, setOtherText] = useState('');
 
   const bedrooms = [
-    { id: '0', label: '0 bedrooms' },
-    { id: '1', label: '1 bedroom' },
-    { id: '2', label: '2 bedrooms' },
-    { id: '3', label: '3 bedrooms' },
-    { id: '4', label: '4 bedrooms' },
-    { id: '5plus', label: '5+ bedrooms' },
-    { id: 'studio', label: 'Studio' },
+    //{ id: '0', label: '0 bedrooms' },
+    { id: '1', label: '1 bedroom + 1 bathroom' },
+    { id: '2', label: '2 bedrooms + 1 bathroom + 1 additional toilet' },
+    { id: '3', label: '3 bedrooms + 2 bathrooms' },
+    { id: '4', label: '4 bedrooms + 3 bathrooms' },
+    { id: '5plus', label: '5+ bedrooms + 4+ bathrooms' },
+    //{ id: 'studio', label: 'Studio' },
     { id: 'other', label: 'Other' },
   ];
 

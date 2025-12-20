@@ -15,7 +15,6 @@ import GardeningHiringDecisionModal from './GardeningHiringDecisionModal';
 import GardeningLocationModal from './GardeningLocationModal';
 import FrequencyModal from './FrequencyModal';
 import BedroomsModal from './BedroomsModal';
-import BathroomsModal from './BathroomsModal';
 import ReceptionRoomsModal from './ReceptionRoomsModal';
 import CleaningTypeModal from './CleaningTypeModal';
 import CurrentCleanerModal from './CurrentCleanerModal';
@@ -23,10 +22,7 @@ import BestDaysModal from './BestDaysModal';
 import SupplyMaterialsModal from './SupplyMaterialsModal';
 import HiringDecisionModal from './HiringDecisionModal';
 import LocationModal from './LocationModal';
-import SuccessModal from './SuccessModal';
 import EmailModal from './EmailModal';
-import PhoneModal from './PhoneModal';
-import NameModal from './NameModal';
 
 export default function Services() {
   const [isPropertyModalOpen, setIsPropertyModalOpen] = useState(false);
@@ -42,7 +38,6 @@ export default function Services() {
   const [isGardeningLocationModalOpen, setIsGardeningLocationModalOpen] = useState(false);
   const [isFrequencyModalOpen, setIsFrequencyModalOpen] = useState(false);
   const [isBedroomsModalOpen, setIsBedroomsModalOpen] = useState(false);
-  const [isBathroomsModalOpen, setIsBathroomsModalOpen] = useState(false);
   const [isReceptionRoomsModalOpen, setIsReceptionRoomsModalOpen] = useState(false);
   const [isCleaningTypeModalOpen, setIsCleaningTypeModalOpen] = useState(false);
   const [isCurrentCleanerModalOpen, setIsCurrentCleanerModalOpen] = useState(false);
@@ -50,14 +45,10 @@ export default function Services() {
   const [isSupplyMaterialsModalOpen, setIsSupplyMaterialsModalOpen] = useState(false);
   const [isHiringDecisionModalOpen, setIsHiringDecisionModalOpen] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
-  const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false);
-  const [isNameModalOpen, setIsNameModalOpen] = useState(false);
   const [propertyData, setPropertyData] = useState(null);
   const [frequencyData, setFrequencyData] = useState(null);
   const [bedroomsData, setBedroomsData] = useState(null);
-  const [bathroomsData, setBathroomsData] = useState(null);
   const [receptionRoomsData, setReceptionRoomsData] = useState(null);
   const [cleaningTypeData, setCleaningTypeData] = useState(null);
   const [currentCleanerData, setCurrentCleanerData] = useState(null);
@@ -66,7 +57,6 @@ export default function Services() {
   const [hiringDecisionData, setHiringDecisionData] = useState(null);
   const [locationData, setLocationData] = useState(null);
   const [emailData, setEmailData] = useState(null);
-  const [phoneData, setPhoneData] = useState(null);
   const [nameData, setNameData] = useState(null);
 
   // Gardening progress tracking
@@ -115,7 +105,6 @@ export default function Services() {
     setIsGardeningLocationModalOpen(false);
     setIsFrequencyModalOpen(false);
     setIsBedroomsModalOpen(false);
-    setIsBathroomsModalOpen(false);
     setIsReceptionRoomsModalOpen(false);
     setIsCleaningTypeModalOpen(false);
     setIsCurrentCleanerModalOpen(false);
@@ -123,10 +112,7 @@ export default function Services() {
     setIsSupplyMaterialsModalOpen(false);
     setIsHiringDecisionModalOpen(false);
     setIsLocationModalOpen(false);
-    setIsSuccessModalOpen(false);
     setIsEmailModalOpen(false);
-    setIsPhoneModalOpen(false);
-    setIsNameModalOpen(false);
     setCurrentGardeningStep(0);
   };
 
@@ -152,26 +138,15 @@ export default function Services() {
     setIsFrequencyModalOpen(true);
   };
 
-  const handleShowBathrooms = (data) => {
+  const handleShowReceptionRooms = (data) => {
     setBedroomsData(data);
     setIsBedroomsModalOpen(false);
-    setIsBathroomsModalOpen(true);
-  };
-
-  const handleBathroomsBack = () => {
-    setIsBathroomsModalOpen(false);
-    setIsBedroomsModalOpen(true);
-  };
-
-  const handleShowReceptionRooms = (data) => {
-    setBathroomsData(data);
-    setIsBathroomsModalOpen(false);
     setIsReceptionRoomsModalOpen(true);
   };
 
   const handleReceptionRoomsBack = () => {
     setIsReceptionRoomsModalOpen(false);
-    setIsBathroomsModalOpen(true);
+    setIsBedroomsModalOpen(true);
   };
 
   const handleShowCleaningType = (data) => {
@@ -243,59 +218,25 @@ export default function Services() {
   const handleShowSuccess = (data) => {
     setLocationData(data);
     setIsLocationModalOpen(false);
-    setIsSuccessModalOpen(true);
-  };
-
-  const handleSuccessBack = () => {
-    setIsSuccessModalOpen(false);
-    setIsLocationModalOpen(true);
+    setIsEmailModalOpen(true);
   };
 
   const handleShowEmailModal = () => {
-    setIsSuccessModalOpen(false);
     setIsEmailModalOpen(true);
   };
 
   const handleEmailBack = () => {
     setIsEmailModalOpen(false);
-    setIsSuccessModalOpen(true);
-  };
-
-  const handleShowPhoneModal = () => {
-    setIsEmailModalOpen(false);
-    setIsPhoneModalOpen(true);
-  };
-
-  const handlePhoneBack = () => {
-    setIsPhoneModalOpen(false);
-    setIsEmailModalOpen(true);
-  };
-
-  const handleShowNameModal = () => {
-    setIsPhoneModalOpen(false);
-    setIsNameModalOpen(true);
-  };
-
-  const handleNameBack = () => {
-    setIsNameModalOpen(false);
-    setIsPhoneModalOpen(true);
-  };
-
-  const handlePhoneContinue = (data) => {
-    setPhoneData(data);
-    handleShowNameModal();
+    setIsLocationModalOpen(true);
   };
 
   const handleEmailContinue = (data) => {
     setEmailData(data);
-    handleShowPhoneModal();
-  };
-
-  const handleSuccessContinue = () => {
-    setIsSuccessModalOpen(false);
+    handlePropertyModalClose();
   };
 
   const handleLocationContinue = (data) => {
+    setLocationData(data);
     setIsLocationModalOpen(false);
   };
 
@@ -570,18 +511,8 @@ export default function Services() {
         isOpen={isBedroomsModalOpen}
         onClose={handlePropertyModalClose}
         onBack={handleBedroomsBack}
-        onShowBathrooms={handleShowBathrooms}
+        onShowBathrooms={handleShowReceptionRooms}
         currentStep={3}
-        totalSteps={11}
-      />
-
-      {/* Bathrooms Modal */}
-      <BathroomsModal
-        isOpen={isBathroomsModalOpen}
-        onClose={handlePropertyModalClose}
-        onBack={handleBathroomsBack}
-        onShowReceptionRooms={handleShowReceptionRooms}
-        currentStep={4}
         totalSteps={11}
       />
 
@@ -591,7 +522,7 @@ export default function Services() {
         onClose={handlePropertyModalClose}
         onBack={handleReceptionRoomsBack}
         onShowCleaningType={handleShowCleaningType}
-        currentStep={5}
+        currentStep={4}
         totalSteps={11}
       />
 
@@ -601,8 +532,8 @@ export default function Services() {
         onClose={handlePropertyModalClose}
         onBack={handleCleaningTypeBack}
         onShowCurrentCleaner={handleShowCurrentCleaner}
-        currentStep={6}
-        totalSteps={11}
+        currentStep={5}
+        totalSteps={10}
       />
 
       {/* Current Cleaner Modal */}
@@ -611,8 +542,8 @@ export default function Services() {
         onClose={handlePropertyModalClose}
         onBack={handleCurrentCleanerBack}
         onShowBestDays={handleShowBestDays}
-        currentStep={7}
-        totalSteps={11}
+        currentStep={6}
+        totalSteps={10}
       />
 
       {/* Best Days Modal */}
@@ -621,8 +552,8 @@ export default function Services() {
         onClose={handlePropertyModalClose}
         onBack={handleBestDaysBack}
         onShowSupplyMaterials={handleShowSupplyMaterials}
-        currentStep={8}
-        totalSteps={11}
+        currentStep={7}
+        totalSteps={10}
       />
 
       {/* Supply Materials Modal */}
@@ -631,8 +562,8 @@ export default function Services() {
         onClose={handlePropertyModalClose}
         onBack={handleSupplyMaterialsBack}
         onShowHiringDecision={handleShowHiringDecision}
-        currentStep={9}
-        totalSteps={11}
+        currentStep={8}
+        totalSteps={10}
       />
 
       {/* Hiring Decision Modal */}
@@ -641,8 +572,8 @@ export default function Services() {
         onClose={handlePropertyModalClose}
         onBack={handleHiringDecisionBack}
         onShowLocation={handleShowLocation}
-        currentStep={10}
-        totalSteps={11}
+        currentStep={9}
+        totalSteps={10}
       />
 
       {/* Location Modal */}
@@ -652,17 +583,8 @@ export default function Services() {
         onBack={handleLocationBack}
         onContinue={handleLocationContinue}
         onShowSuccess={handleShowSuccess}
-        currentStep={11}
-        totalSteps={11}
-      />
-
-      {/* Success Modal */}
-      <SuccessModal
-        isOpen={isSuccessModalOpen}
-        onClose={handlePropertyModalClose}
-        onBack={handleSuccessBack}
-        onContinue={handleSuccessContinue}
-        onShowEmailModal={handleShowEmailModal}
+        currentStep={10}
+        totalSteps={10}
       />
 
       {/* Email Modal */}
@@ -671,29 +593,11 @@ export default function Services() {
         onClose={handlePropertyModalClose}
         onBack={handleEmailBack}
         onContinue={handleEmailContinue}
-        currentStep={12}
-        totalSteps={13}
+        currentStep={11}
+        totalSteps={12}
       />
 
-      {/* Phone Modal */}
-      <PhoneModal
-        isOpen={isPhoneModalOpen}
-        onClose={handlePropertyModalClose}
-        onBack={handlePhoneBack}
-        onContinue={handlePhoneContinue}
-        currentStep={13}
-        totalSteps={14}
-      />
 
-      {/* Name Modal */}
-      <NameModal
-        isOpen={isNameModalOpen}
-        onClose={handlePropertyModalClose}
-        onBack={handleNameBack}
-        onContinue={() => handlePropertyModalClose()}
-        currentStep={14}
-        totalSteps={14}
-      />
     </section>
   );
 }

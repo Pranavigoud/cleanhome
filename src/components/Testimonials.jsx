@@ -35,8 +35,8 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      name: 'Priya Sharma',
-      location: 'Mumbai',
+      name: 'David Smith',
+      location: 'Leicester',
       quote: 'The team was punctual and very professional. My kitchen looks brand new! Highly recommend Loksar.',
       initials: 'P',
       rating: 5,
@@ -44,15 +44,15 @@ export default function Testimonials() {
     {
       id: 2,
       name: 'Rahul Verma',
-      location: 'Bangalore',
+      location: 'Leicester',
       quote: 'Used their gardening service for my balcony garden. The gardener was knowledgeable and very polite.',
       initials: 'R',
       rating: 4.5,
     },
     {
       id: 3,
-      name: 'Anjali Gupta',
-      location: 'Delhi NCR',
+      name: 'George Williams',
+      location: 'Leicester',
       quote: 'Move-in cleaning was a lifesaver. They handled everything from floor to ceiling. Great value for money.',
       initials: 'A',
       rating: 5,
@@ -60,15 +60,15 @@ export default function Testimonials() {
     {
       id: 4,
       name: 'Vikram Singh',
-      location: 'Pune',
+      location: 'Leicester',
       quote: 'Excellent service and very affordable. The cleaning staff was courteous and did a thorough job.',
       initials: 'V',
       rating: 5,
     },
     {
       id: 5,
-      name: 'Neha Patel',
-      location: 'Hyderabad',
+      name: 'John Jones',
+      location: 'Leicester',
       quote: 'Fantastic gardening work! My garden has never looked better. Definitely booking again.',
       initials: 'N',
       rating: 4.5,
@@ -76,7 +76,7 @@ export default function Testimonials() {
     {
       id: 6,
       name: 'Arjun Kapoor',
-      location: 'Kolkata',
+      location: 'Leicester',
       quote: 'Best cleaning service in the city. Professional, reliable, and reasonably priced.',
       initials: 'A',
       rating: 5,

@@ -31,9 +31,9 @@ export default function GardeningGardenSizeModal({ isOpen, onClose, onNext, onBa
         <div className="absolute top-3 right-3 z-10">
           <button
             onClick={onClose}
-            className="p-1.5 hover:bg-gray-100 rounded-full transition"
+            className="p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition duration-200"
           >
-            <X className="w-5 h-5 text-gray-600" />
+            <X className="w-5 h-5 text-gray-700" />
           </button>
         </div>
 
@@ -58,7 +58,7 @@ export default function GardeningGardenSizeModal({ isOpen, onClose, onNext, onBa
           </h2>
 
           {/* Size Options */}
-          <div className="space-y-2 mb-4 max-h-[35vh] overflow-y-auto">
+          <div className="space-y-2 mb-4 max-h-[35vh] overflow-y-auto scrollbar-hide">
             {sizeOptions.map((option) => (
               <label
                 key={option.id}
