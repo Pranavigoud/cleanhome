@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 
-export default function GardeningPropertyTypeModal({ isOpen, onClose, onNext }) {
+export default function GardeningPropertyTypeModal({ isOpen, onClose, onNext, progress = 0 }) {
   const [selectedProperty, setSelectedProperty] = useState('');
   const [otherValue, setOtherValue] = useState('');
 
@@ -50,9 +50,16 @@ export default function GardeningPropertyTypeModal({ isOpen, onClose, onNext }) 
         {/* Content Section */}
         <div className="p-3 sm:p-4">
           {/* Progress Bar */}
-          <div className="flex gap-2 mb-3">
-            <div className="h-1 flex-1 bg-blue-600 rounded-full"></div>
-            <div className="h-1 flex-1 bg-gray-300 rounded-full"></div>
+          <div className="mb-3">
+            <div className="flex gap-2 mb-1">
+              <div className="h-1.5 flex-1 bg-gray-300 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-blue-600 transition-all duration-500 ease-out"
+                  style={{ width: `${progress}%` }}
+                ></div>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500">Step 1 of 10</p>
           </div>
 
           {/* Title */}

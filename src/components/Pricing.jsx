@@ -47,20 +47,20 @@ export default function Pricing() {
   ];
 
   return (
-    <section className="bg-white py-12 sm:py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-12 sm:py-16 md:py-24 lg:py-28">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16 px-2 sm:px-0">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-3">
+        <div className="text-center mb-10 sm:mb-14 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-2 sm:mb-3">
             Simple, transparent pricing
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600">
             No hidden fees. What you see is what you pay.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-4 lg:gap-8 items-center">
           {plans.map((plan) => (
             <div
               key={plan.id}
@@ -72,48 +72,48 @@ export default function Pricing() {
             >
               {/* Best Value Badge */}
               {plan.badge && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-yellow-400 text-black font-bold px-4 py-1 rounded-full text-sm">
+                <div className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="bg-yellow-400 text-black font-bold px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm">
                     {plan.badge}
                   </div>
                 </div>
               )}
 
               {/* Card Content */}
-              <div className={`p-8 ${plan.featured ? 'pt-12' : ''}`}>
+              <div className={`p-5 sm:p-6 md:p-8 ${plan.featured ? 'pt-8 sm:pt-10' : ''}`}>
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-black mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4">
                   {plan.title}
                 </h3>
 
                 {/* Price Section */}
-                <div className="mb-2">
+                <div className="mb-1 sm:mb-2">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-5xl font-bold text-black">
+                    <span className="text-4xl sm:text-5xl font-bold text-black">
                       {plan.price}
                     </span>
-                    <span className="text-gray-600">/ clean</span>
+                    <span className="text-xs sm:text-sm text-gray-600">/ clean</span>
                   </div>
                 </div>
 
                 {/* Duration */}
-                <p className="text-sm text-gray-500 mb-8">
+                <p className="text-xs sm:text-sm text-gray-500 mb-5 sm:mb-8">
                   {plan.duration}
                 </p>
 
                 {/* Features List */}
-                <div className="space-y-3 mb-8">
+                <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   {plan.features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <span className="w-2 h-2 bg-yellow-400 rounded-full flex-shrink-0"></span>
-                      <span className="text-gray-700 font-medium">{feature}</span>
+                    <div key={index} className="flex items-center gap-2 sm:gap-3">
+                      <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-400 rounded-full flex-shrink-0"></span>
+                      <span className="text-xs sm:text-sm text-gray-700 font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* Button */}
                 <button
-                  className={`w-full py-3 rounded-full font-bold transition-all duration-300 ${
+                  className={`w-full py-2.5 sm:py-3 rounded-full font-bold text-sm sm:text-base transition-all duration-300 ${
                     plan.featured
                       ? 'bg-yellow-400 text-black hover:bg-yellow-500'
                       : 'border-2 border-black text-black hover:bg-black hover:text-white'

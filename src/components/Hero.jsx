@@ -286,12 +286,12 @@ export default function Hero() {
 
   return (
     <section className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-20 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Left Content */}
-          <div>
+          <div className="space-y-6 sm:space-y-8">
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight">
               Professional
               <br />
               <span style={{ color: '#0D6B7D' }}>Home Cleaning &</span>
@@ -302,35 +302,35 @@ export default function Hero() {
             </h1>
 
             {/* Subheading */}
-            <p className="text-base sm:text-lg text-gray-700 mb-8 sm:mb-10 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
               Trusted experts for a cleaner home and greener outdoors. Experience premium service with skilled professionals, eco-friendly products, and guaranteed satisfaction.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <a href="#services" className="text-gray-800 hover:text-blue-600 font-bold flex items-center gap-2 text-sm sm:text-base transition">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <a href="#services" className="text-gray-800 hover:text-blue-600 font-bold flex items-center gap-2 text-xs sm:text-sm transition">
                 View Services <ArrowRight className="w-4 h-4" />
               </a>
             </div>
 
             {/* Customer Avatars */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
               <div className="flex -space-x-3">
                 {/* Avatar placeholders */}
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 border-2 border-white flex items-center justify-center text-white font-bold text-xs sm:text-sm">
                   J
                 </div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white flex items-center justify-center text-white font-bold text-xs sm:text-sm">
                   S
                 </div>
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white flex items-center justify-center text-white font-bold text-sm">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white flex items-center justify-center text-white font-bold text-xs sm:text-sm">
                   R
                 </div>
-                <div className="w-10 h-10 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-gray-700 font-bold text-sm">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-gray-700 font-bold text-xs sm:text-sm">
                   +2k
                 </div>
               </div>
-              <p className="text-gray-700 font-medium text-sm sm:text-base">
+              <p className="text-gray-700 font-medium text-xs sm:text-sm">
                 Happy customers across India
               </p>
             </div>
@@ -341,7 +341,7 @@ export default function Hero() {
             {/* Illustration Background */}
             <div className="relative w-full">
               {/* Teal curved background */}
-              <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-teal-600 rounded-3xl overflow-hidden shadow-2xl relative h-96 lg:h-full lg:min-h-96 flex items-center justify-center p-8">
+              <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-teal-600 rounded-3xl overflow-hidden shadow-2xl relative h-64 sm:h-80 lg:h-96 flex items-center justify-center p-6 sm:p-8">
                 {/* Placeholder for illustration - using SVG or image */}
                 <div className="relative w-full h-full flex flex-col items-center justify-center">
                   {/* Professional illustration placeholder */}
@@ -368,10 +368,10 @@ export default function Hero() {
                   </svg>
 
                   {/* Eco-friendly badge */}
-                  <div className="absolute bottom-6 left-6 bg-white rounded-2xl shadow-lg px-4 py-3 flex items-center gap-2">
-                    <span className="text-2xl">♻️</span>
+                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 bg-white rounded-2xl shadow-lg px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2">
+                    <span className="text-xl sm:text-2xl">♻️</span>
                     <div>
-                      <p className="font-bold text-gray-800 text-sm">Products</p>
+                      <p className="font-bold text-gray-800 text-xs sm:text-sm">Products</p>
                       <p className="text-gray-600 text-xs">100% Eco-Friendly</p>
                     </div>
                   </div>

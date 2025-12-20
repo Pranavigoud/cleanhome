@@ -38,28 +38,28 @@ export default function WhyChoose() {
   ];
 
   return (
-    <section className="bg-white py-16 sm:py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-12 sm:py-16 md:py-24 lg:py-28">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Side - Card with Illustration */}
           <div className="flex justify-center lg:justify-start">
-            <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-3xl p-8 sm:p-12 w-full max-w-sm h-80 sm:h-96 flex flex-col items-center justify-center shadow-lg relative overflow-hidden">
+            <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 w-full max-w-sm h-64 sm:h-72 md:h-80 lg:h-96 flex flex-col items-center justify-center shadow-lg relative overflow-hidden">
               {/* Background decoration */}
-              <div className="absolute top-0 left-0 w-32 h-32 bg-teal-400 opacity-20 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute bottom-0 right-0 w-40 h-40 bg-teal-400 opacity-10 rounded-full translate-x-1/4 translate-y-1/4"></div>
+              <div className="absolute top-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-teal-400 opacity-20 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-0 right-0 w-28 sm:w-40 h-28 sm:h-40 bg-teal-400 opacity-10 rounded-full translate-x-1/4 translate-y-1/4"></div>
 
               {/* Content */}
               <div className="relative z-10 text-center">
-                <p className="text-teal-100 text-base sm:text-lg font-medium mb-2">
+                <p className="text-teal-100 text-sm sm:text-base md:text-lg font-medium mb-2">
                   Why choose
                 </p>
-                <h3 className="text-teal-100 text-3xl sm:text-4xl font-bold mb-8">
+                <h3 className="text-teal-100 text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">
                   LOKSAR
                 </h3>
 
                 {/* Plant Illustration */}
-                <div className="flex justify-center mb-4">
-                  <div className="relative w-56 h-56 flex items-center justify-center">
+                <div className="flex justify-center mb-2 sm:mb-4">
+                  <div className="relative w-40 sm:w-48 md:w-56 h-40 sm:h-48 md:h-56 flex items-center justify-center">
                     <svg viewBox="0 0 120 140" className="w-full h-full">
                       {/* Pot */}
                       <ellipse cx="60" cy="110" rx="35" ry="12" fill="white" opacity="0.9" />
@@ -104,29 +104,29 @@ export default function WhyChoose() {
 
           {/* Right Side - Features List */}
           <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 md:mb-10 lg:mb-12">
               Why Choose Loksar?
             </h2>
 
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8">
               {features.map((feature) => {
                 const IconComponent = feature.icon;
                 return (
                   <div
                     key={feature.id}
-                    className="flex gap-4 sm:gap-6 items-start"
+                    className="flex gap-3 sm:gap-4 md:gap-6 items-start"
                   >
                     {/* Icon */}
-                    <div className={`${feature.iconBg} p-3 sm:p-4 rounded-lg flex-shrink-0`}>
-                      <IconComponent className={`w-6 h-6 sm:w-7 sm:h-7 ${feature.iconColor}`} />
+                    <div className={`${feature.iconBg} p-2.5 sm:p-3 md:p-4 rounded-lg flex-shrink-0`}>
+                      <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 ${feature.iconColor}`} />
                     </div>
 
                     {/* Content */}
                     <div className="flex-1">
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1">
                         {feature.title}
                       </h3>
-                      <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                      <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>

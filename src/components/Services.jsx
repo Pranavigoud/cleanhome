@@ -4,6 +4,15 @@ import CleaningservicesImg from '../assets/Cleaningservices.png';
 import GardeningservicesImg from '../assets/Gardeningservices.png';
 import PropertyTypeModal from './PropertyTypeModal';
 import GardeningPropertyTypeModal from './GardeningPropertyTypeModal';
+import GardeningServicesModal from './GardeningServicesModal';
+import GardeningFrequencyModal from './GardeningFrequencyModal';
+import GardeningGardenSizeModal from './GardeningGardenSizeModal';
+import GardeningGardenConditionModal from './GardeningGardenConditionModal';
+import GardeningPlantsModal from './GardeningPlantsModal';
+import GardeningGardenWasteModal from './GardeningGardenWasteModal';
+import GardeningWorkBeginModal from './GardeningWorkBeginModal';
+import GardeningHiringDecisionModal from './GardeningHiringDecisionModal';
+import GardeningLocationModal from './GardeningLocationModal';
 import FrequencyModal from './FrequencyModal';
 import BedroomsModal from './BedroomsModal';
 import BathroomsModal from './BathroomsModal';
@@ -22,6 +31,15 @@ import NameModal from './NameModal';
 export default function Services() {
   const [isPropertyModalOpen, setIsPropertyModalOpen] = useState(false);
   const [isGardeningPropertyModalOpen, setIsGardeningPropertyModalOpen] = useState(false);
+  const [isGardeningServicesModalOpen, setIsGardeningServicesModalOpen] = useState(false);
+  const [isGardeningFrequencyModalOpen, setIsGardeningFrequencyModalOpen] = useState(false);
+  const [isGardeningGardenSizeModalOpen, setIsGardeningGardenSizeModalOpen] = useState(false);
+  const [isGardeningGardenConditionModalOpen, setIsGardeningGardenConditionModalOpen] = useState(false);
+  const [isGardeningPlantsModalOpen, setIsGardeningPlantsModalOpen] = useState(false);
+  const [isGardeningGardenWasteModalOpen, setIsGardeningGardenWasteModalOpen] = useState(false);
+  const [isGardeningWorkBeginModalOpen, setIsGardeningWorkBeginModalOpen] = useState(false);
+  const [isGardeningHiringDecisionModalOpen, setIsGardeningHiringDecisionModalOpen] = useState(false);
+  const [isGardeningLocationModalOpen, setIsGardeningLocationModalOpen] = useState(false);
   const [isFrequencyModalOpen, setIsFrequencyModalOpen] = useState(false);
   const [isBedroomsModalOpen, setIsBedroomsModalOpen] = useState(false);
   const [isBathroomsModalOpen, setIsBathroomsModalOpen] = useState(false);
@@ -51,6 +69,30 @@ export default function Services() {
   const [phoneData, setPhoneData] = useState(null);
   const [nameData, setNameData] = useState(null);
 
+  // Gardening progress tracking
+  const gardeningSteps = [
+    'propertyType',
+    'services',
+    'frequency',
+    'gardenSize',
+    'gardenCondition',
+    'plants',
+    'gardenWaste',
+    'workBegin',
+    'hiringDecision',
+    'location'
+  ];
+  const totalGardeningSteps = gardeningSteps.length;
+  const [currentGardeningStep, setCurrentGardeningStep] = useState(0);
+
+  const getGardeningProgress = () => {
+    return ((currentGardeningStep + 1) / totalGardeningSteps) * 100;
+  };
+
+  const updateGardeningStep = (stepIndex) => {
+    setCurrentGardeningStep(stepIndex);
+  };
+
   const handleGetStarted = (serviceId) => {
     if (serviceId === 1) {
       setIsPropertyModalOpen(true);
@@ -62,6 +104,15 @@ export default function Services() {
   const handlePropertyModalClose = () => {
     setIsPropertyModalOpen(false);
     setIsGardeningPropertyModalOpen(false);
+    setIsGardeningServicesModalOpen(false);
+    setIsGardeningFrequencyModalOpen(false);
+    setIsGardeningGardenSizeModalOpen(false);
+    setIsGardeningGardenConditionModalOpen(false);
+    setIsGardeningPlantsModalOpen(false);
+    setIsGardeningGardenWasteModalOpen(false);
+    setIsGardeningWorkBeginModalOpen(false);
+    setIsGardeningHiringDecisionModalOpen(false);
+    setIsGardeningLocationModalOpen(false);
     setIsFrequencyModalOpen(false);
     setIsBedroomsModalOpen(false);
     setIsBathroomsModalOpen(false);
@@ -76,6 +127,7 @@ export default function Services() {
     setIsEmailModalOpen(false);
     setIsPhoneModalOpen(false);
     setIsNameModalOpen(false);
+    setCurrentGardeningStep(0);
   };
 
   const handleShowFrequency = (data) => {
@@ -269,14 +321,14 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="bg-white py-16 sm:py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="bg-white py-12 sm:py-16 md:py-24 lg:py-28">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <p className="font-bold text-sm sm:text-base tracking-widest mb-3 uppercase" style={{ color: '#0D6B7D' }}>
+        <div className="text-center mb-10 sm:mb-14 md:mb-16">
+          <p className="font-bold text-xs sm:text-sm tracking-widest mb-2 sm:mb-3 uppercase" style={{ color: '#0D6B7D' }}>
             OUR EXPERTISE
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
             Comprehensive Home Care
           </h2>
           <div className="flex justify-center">
@@ -285,7 +337,7 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
           {services.map((service) => {
             const IconComponent = service.icon;
             return (
@@ -297,7 +349,7 @@ export default function Services() {
                 {/* Service Card */}
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                   {/* Image Section */}
-                  <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
+                  <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
                     <img
                       src={service.image}
                       alt={service.title}
@@ -306,19 +358,19 @@ export default function Services() {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-6 sm:p-8">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className={`${service.iconBg} p-3 rounded-lg`}>
-                        <IconComponent className={`w-6 h-6 ${service.iconColor}`} />
+                  <div className="p-4 sm:p-6 md:p-8">
+                    <div className="flex items-start justify-between mb-2 sm:mb-3">
+                      <div className={`${service.iconBg} p-2.5 sm:p-3 rounded-lg`}>
+                        <IconComponent className={`w-5 h-5 sm:w-6 sm:h-6 ${service.iconColor}`} />
                       </div>
-                      <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-300" />
+                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-300" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1 sm:mb-2">
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-600 text-sm sm:text-base">
+                    <p className="text-xs sm:text-sm text-gray-600">
                       {service.description}
                     </p>
                   </div>
@@ -342,9 +394,164 @@ export default function Services() {
       <GardeningPropertyTypeModal
         isOpen={isGardeningPropertyModalOpen}
         onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
         onNext={(propertyType) => {
           console.log('Selected gardening property:', propertyType);
+          updateGardeningStep(0);
           setIsGardeningPropertyModalOpen(false);
+          setIsGardeningServicesModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Services Modal */}
+      <GardeningServicesModal
+        isOpen={isGardeningServicesModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
+        onBack={() => {
+          setIsGardeningServicesModalOpen(false);
+          setIsGardeningPropertyModalOpen(true);
+        }}
+        onNext={(services) => {
+          console.log('Selected services:', services);
+          updateGardeningStep(1);
+          setIsGardeningServicesModalOpen(false);
+          setIsGardeningFrequencyModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Frequency Modal */}
+      <GardeningFrequencyModal
+        isOpen={isGardeningFrequencyModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
+        onBack={() => {
+          setIsGardeningFrequencyModalOpen(false);
+          setIsGardeningServicesModalOpen(true);
+        }}
+        onNext={(frequency) => {
+          console.log('Selected frequency:', frequency);
+          updateGardeningStep(2);
+          setIsGardeningFrequencyModalOpen(false);
+          setIsGardeningGardenSizeModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Garden Size Modal */}
+      <GardeningGardenSizeModal
+        isOpen={isGardeningGardenSizeModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
+        onBack={() => {
+          setIsGardeningGardenSizeModalOpen(false);
+          setIsGardeningFrequencyModalOpen(true);
+        }}
+        onNext={(size) => {
+          console.log('Selected garden size:', size);
+          updateGardeningStep(3);
+          setIsGardeningGardenSizeModalOpen(false);
+          setIsGardeningGardenConditionModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Garden Condition Modal */}
+      <GardeningGardenConditionModal
+        isOpen={isGardeningGardenConditionModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
+        onBack={() => {
+          setIsGardeningGardenConditionModalOpen(false);
+          setIsGardeningGardenSizeModalOpen(true);
+        }}
+        onNext={(condition) => {
+          console.log('Selected garden condition:', condition);
+          updateGardeningStep(4);
+          setIsGardeningGardenConditionModalOpen(false);
+          setIsGardeningPlantsModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Plants Modal */}
+      <GardeningPlantsModal
+        isOpen={isGardeningPlantsModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
+        onBack={() => {
+          setIsGardeningPlantsModalOpen(false);
+          setIsGardeningGardenConditionModalOpen(true);
+        }}
+        onNext={(plants) => {
+          console.log('Selected plants preference:', plants);
+          updateGardeningStep(5);
+          setIsGardeningPlantsModalOpen(false);
+          setIsGardeningGardenWasteModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Garden Waste Modal */}
+      <GardeningGardenWasteModal
+        isOpen={isGardeningGardenWasteModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
+        onBack={() => {
+          setIsGardeningGardenWasteModalOpen(false);
+          setIsGardeningPlantsModalOpen(true);
+        }}
+        onNext={(waste) => {
+          console.log('Selected waste preference:', waste);
+          updateGardeningStep(6);
+          setIsGardeningGardenWasteModalOpen(false);
+          setIsGardeningWorkBeginModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Work Begin Modal */}
+      <GardeningWorkBeginModal
+        isOpen={isGardeningWorkBeginModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
+        onBack={() => {
+          setIsGardeningWorkBeginModalOpen(false);
+          setIsGardeningGardenWasteModalOpen(true);
+        }}
+        onNext={(time) => {
+          console.log('Selected work begin time:', time);
+          updateGardeningStep(7);
+          setIsGardeningWorkBeginModalOpen(false);
+          setIsGardeningHiringDecisionModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Hiring Decision Modal */}
+      <GardeningHiringDecisionModal
+        isOpen={isGardeningHiringDecisionModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
+        onBack={() => {
+          setIsGardeningHiringDecisionModalOpen(false);
+          setIsGardeningWorkBeginModalOpen(true);
+        }}
+        onNext={(decision) => {
+          console.log('Selected hiring decision:', decision);
+          updateGardeningStep(8);
+          setIsGardeningHiringDecisionModalOpen(false);
+          setIsGardeningLocationModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Location Modal */}
+      <GardeningLocationModal
+        isOpen={isGardeningLocationModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={getGardeningProgress()}
+        onBack={() => {
+          setIsGardeningLocationModalOpen(false);
+          setIsGardeningHiringDecisionModalOpen(true);
+        }}
+        onNext={(location) => {
+          console.log('Selected location:', location);
+          updateGardeningStep(9);
+          setIsGardeningLocationModalOpen(false);
         }}
       />
 
