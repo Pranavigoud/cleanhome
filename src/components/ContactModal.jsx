@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Mail, Phone, MapPin, Loader } from 'lucide-react';
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL } from '../config'; // Ensure you have this config file created as per previous steps
 
 export default function ContactModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -65,7 +65,7 @@ export default function ContactModal({ isOpen, onClose }) {
       return;
     }
 
-    // Phone validation - check for +44 format
+    // Phone validation - check for +44 format (optional, keeping your existing check)
     const phoneRegex = /^\+44\s?[\d\s]{10,}$/;
     if (!phoneRegex.test(formData.phone.replace(/\s/g, ' '))) {
       setError('Please enter a valid UK phone number (starting with +44)');
@@ -80,6 +80,7 @@ export default function ContactModal({ isOpen, onClose }) {
     setIsLoading(true);
 
     try {
+      // --- REAL API CALL ---
       const response = await fetch(`${API_BASE_URL}/contact`, {
         method: 'POST',
         headers: {
@@ -110,8 +111,7 @@ export default function ContactModal({ isOpen, onClose }) {
       }, 2000);
     } catch (err) {
       console.error(err);
-      setError('Failed to send message. Please try again.');
-    } finally {
+      setError('Failed to send message. Please ensure the server is running.');
       setIsLoading(false);
     }
   };
