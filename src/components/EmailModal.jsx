@@ -149,7 +149,7 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
                   <Phone className="w-5 h-5 text-gray-400 flex-shrink-0" />
                   <input
                     type="tel"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+44 (123) 456 7890"
                     value={phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleContinue()}

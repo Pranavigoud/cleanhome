@@ -13,6 +13,7 @@ import GardeningGardenWasteModal from './GardeningGardenWasteModal';
 import GardeningWorkBeginModal from './GardeningWorkBeginModal';
 import GardeningHiringDecisionModal from './GardeningHiringDecisionModal';
 import GardeningLocationModal from './GardeningLocationModal';
+import GardeningEmailModal from './GardeningEmailModal';
 import FrequencyModal from './FrequencyModal';
 import BedroomsModal from './BedroomsModal';
 import ReceptionRoomsModal from './ReceptionRoomsModal';
@@ -23,6 +24,7 @@ import SupplyMaterialsModal from './SupplyMaterialsModal';
 import HiringDecisionModal from './HiringDecisionModal';
 import LocationModal from './LocationModal';
 import EmailModal from './EmailModal';
+import WelcomeModal from './WelcomeModal';
 
 export default function Services() {
   const [isPropertyModalOpen, setIsPropertyModalOpen] = useState(false);
@@ -36,6 +38,7 @@ export default function Services() {
   const [isGardeningWorkBeginModalOpen, setIsGardeningWorkBeginModalOpen] = useState(false);
   const [isGardeningHiringDecisionModalOpen, setIsGardeningHiringDecisionModalOpen] = useState(false);
   const [isGardeningLocationModalOpen, setIsGardeningLocationModalOpen] = useState(false);
+  const [isGardeningEmailModalOpen, setIsGardeningEmailModalOpen] = useState(false);
   const [isFrequencyModalOpen, setIsFrequencyModalOpen] = useState(false);
   const [isBedroomsModalOpen, setIsBedroomsModalOpen] = useState(false);
   const [isReceptionRoomsModalOpen, setIsReceptionRoomsModalOpen] = useState(false);
@@ -46,6 +49,7 @@ export default function Services() {
   const [isHiringDecisionModalOpen, setIsHiringDecisionModalOpen] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [isGardeningWelcomeModalOpen, setIsGardeningWelcomeModalOpen] = useState(false);
   const [propertyData, setPropertyData] = useState(null);
   const [frequencyData, setFrequencyData] = useState(null);
   const [bedroomsData, setBedroomsData] = useState(null);
@@ -58,6 +62,7 @@ export default function Services() {
   const [locationData, setLocationData] = useState(null);
   const [emailData, setEmailData] = useState(null);
   const [nameData, setNameData] = useState(null);
+  const [gardeningEmailData, setGardeningEmailData] = useState(null);
 
   // Gardening progress tracking
   const gardeningSteps = [
@@ -103,6 +108,7 @@ export default function Services() {
     setIsGardeningWorkBeginModalOpen(false);
     setIsGardeningHiringDecisionModalOpen(false);
     setIsGardeningLocationModalOpen(false);
+    setIsGardeningEmailModalOpen(false);
     setIsFrequencyModalOpen(false);
     setIsBedroomsModalOpen(false);
     setIsReceptionRoomsModalOpen(false);
@@ -113,6 +119,7 @@ export default function Services() {
     setIsHiringDecisionModalOpen(false);
     setIsLocationModalOpen(false);
     setIsEmailModalOpen(false);
+    setIsGardeningWelcomeModalOpen(false);
     setCurrentGardeningStep(0);
   };
 
@@ -493,6 +500,24 @@ export default function Services() {
           console.log('Selected location:', location);
           updateGardeningStep(9);
           setIsGardeningLocationModalOpen(false);
+          setIsGardeningEmailModalOpen(true);
+        }}
+      />
+
+      {/* Gardening Email Modal */}
+      <GardeningEmailModal
+        isOpen={isGardeningEmailModalOpen}
+        onClose={handlePropertyModalClose}
+        progress={((currentGardeningStep + 2) / (totalGardeningSteps + 1)) * 100}
+        onBack={() => {
+          setIsGardeningEmailModalOpen(false);
+          setIsGardeningLocationModalOpen(true);
+        }}
+        onNext={(emailData) => {
+          console.log('User details:', emailData);
+          setGardeningEmailData(emailData);
+          setIsGardeningEmailModalOpen(false);
+          setIsGardeningWelcomeModalOpen(true);
         }}
       />
 
@@ -597,6 +622,25 @@ export default function Services() {
         totalSteps={12}
       />
 
+      {/* Gardening Welcome Modal */}
+      <WelcomeModal
+        isOpen={isGardeningWelcomeModalOpen}
+        onClose={handlePropertyModalClose}
+        onBack={() => {
+          setIsGardeningWelcomeModalOpen(false);
+          setIsGardeningEmailModalOpen(true);
+        }}
+        onSubmit={(detailData) => {
+          console.log('Gardening request submitted:', {
+            ...gardeningEmailData,
+            ...detailData
+          });
+          handlePropertyModalClose();
+        }}
+        userName={gardeningEmailData?.name || 'User'}
+        currentStep={12}
+        totalSteps={12}
+      />
 
     </section>
   );

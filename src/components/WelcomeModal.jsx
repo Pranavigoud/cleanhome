@@ -14,7 +14,9 @@ export default function WelcomeModal({ isOpen, onClose, onBack, onSubmit, userNa
   };
 
   const handleDetailClose = () => {
+    // Close entire flow when detail modal is submitted/closed
     setShowDetailModal(false);
+    onClose();
   };
 
   const handleDetailBack = () => {

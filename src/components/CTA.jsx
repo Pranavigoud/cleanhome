@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
+import ContactModal from './ContactModal';
 
 export default function CTA() {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   return (
     <section id="pricing" className="py-12 sm:py-16 md:py-24 lg:py-28 relative overflow-hidden" style={{ backgroundColor: '#0D6B7D' }}>
       {/* Decorative Background Icons */}
@@ -30,7 +33,9 @@ export default function CTA() {
           </p>
 
           {/* Button */}
-          <button className="bg-white font-bold px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-4 rounded-full inline-flex items-center justify-center hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg mb-8 sm:mb-10 md:mb-12 text-sm sm:text-base md:text-lg font-semibold" style={{ color: '#0D6B7D' }}>
+          <button 
+            onClick={() => setIsContactModalOpen(true)}
+            className="bg-white font-bold px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-4 rounded-full inline-flex items-center justify-center hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg mb-8 sm:mb-10 md:mb-12 text-sm sm:text-base md:text-lg font-semibold" style={{ color: '#0D6B7D' }}>
             Contact Us
           </button>
 
@@ -51,6 +56,12 @@ export default function CTA() {
           </div>
         </div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </section>
   );
 }
