@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, Facebook, Twitter, Instagram } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import logo from '../assets/logo.png';
 
 export default function Footer() {
@@ -108,6 +109,15 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="flex gap-3 sm:gap-4">
+              <a
+                href="https://wa.me/441792699783"
+                className="text-gray-400 hover:text-teal-400 transition-colors"
+                aria-label="WhatsApp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5" />
+              </a>
               <a
                 href="#"
                 className="text-gray-400 hover:text-teal-400 transition-colors"
