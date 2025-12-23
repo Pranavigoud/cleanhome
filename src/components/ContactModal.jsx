@@ -110,21 +110,21 @@ export default function ContactModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 bg-black/50 bg-opacity-30 flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto">
       {/* Modal Container */}
-      <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-md overflow-hidden my-4 sm:my-8">
+      <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl w-full max-w-sm overflow-hidden my-2 sm:my-4">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-500 to-green-600 p-4 sm:p-6 relative">
+        <div className="bg-gradient-to-r from-blue-500 to-green-600 p-3 sm:p-4 relative">
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/20 rounded-full p-1.5 hover:bg-white/30 transition"
+            className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-white/20 rounded-full p-1 hover:bg-white/30 transition"
           >
-            <X className="w-5 h-5 text-white" />
+            <X className="w-4 h-4 text-white" />
           </button>
-          <h2 className="text-xl sm:text-2xl font-bold text-white">Get in Touch</h2>
-          <p className="text-white/90 text-xs sm:text-sm mt-1">We'd love to hear from you</p>
+          <h2 className="text-lg sm:text-xl font-bold text-white">Get in Touch</h2>
+          <p className="text-white/90 text-xs mt-0.5">We'd love to hear from you</p>
         </div>
 
         {/* Content */}
-        <div className="p-4 sm:p-6">
+        <div className="p-3 sm:p-4">
           {success ? (
             <div className="flex flex-col items-center justify-center py-8 text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
@@ -138,7 +138,7 @@ export default function ContactModal({ isOpen, onClose }) {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3">
               {/* Error Message */}
               {error && (
                 <div className="bg-red-100 text-red-600 px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-xs font-medium">
@@ -148,7 +148,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
               {/* Name Field */}
               <div>
-                <label className="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
+                <label className="block text-xs font-semibold text-gray-900 mb-1">
                   Full Name *
                 </label>
                 <input
@@ -157,13 +157,13 @@ export default function ContactModal({ isOpen, onClose }) {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your name"
-                  className="w-full px-3 sm:px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs sm:text-sm"
+                  className="w-full px-3 py-1.5 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs"
                 />
               </div>
 
               {/* Email Field */}
               <div>
-                <label className="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
+                <label className="block text-xs font-semibold text-gray-900 mb-1">
                   Email Address *
                 </label>
                 <input
@@ -172,13 +172,13 @@ export default function ContactModal({ isOpen, onClose }) {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="your.email@example.com"
-                  className="w-full px-3 sm:px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs sm:text-sm"
+                  className="w-full px-3 py-1.5 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs"
                 />
               </div>
 
               {/* Phone Field */}
               <div>
-                <label className="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
+                <label className="block text-xs font-semibold text-gray-900 mb-1">
                   Phone Number *
                 </label>
                 <input
@@ -187,13 +187,13 @@ export default function ContactModal({ isOpen, onClose }) {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+44 XXXXX XXXXXX"
-                  className="w-full px-3 sm:px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs sm:text-sm"
+                  className="w-full px-3 py-1.5 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs"
                 />
               </div>
 
               {/* Subject Field */}
               <div>
-                <label className="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
+                <label className="block text-xs font-semibold text-gray-900 mb-1">
                   Subject
                 </label>
                 <input
@@ -202,13 +202,13 @@ export default function ContactModal({ isOpen, onClose }) {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="How can we help?"
-                  className="w-full px-3 sm:px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs sm:text-sm"
+                  className="w-full px-3 py-1.5 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs"
                 />
               </div>
 
               {/* Message Field */}
               <div>
-                <label className="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
+                <label className="block text-xs font-semibold text-gray-900 mb-1">
                   Message *
                 </label>
                 <textarea
@@ -216,8 +216,8 @@ export default function ContactModal({ isOpen, onClose }) {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell us more about your inquiry..."
-                  rows="4"
-                  className="w-full px-3 sm:px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs sm:text-sm resize-none"
+                  rows="3"
+                  className="w-full px-3 py-1.5 border border-gray-200 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-xs resize-none"
                 />
               </div>
 
@@ -225,11 +225,11 @@ export default function ContactModal({ isOpen, onClose }) {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-blue-500 to-green-600 text-white font-bold py-2 sm:py-2.5 rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition text-xs sm:text-sm flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-blue-500 to-green-600 text-white font-bold py-2 rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition text-xs flex items-center justify-center gap-2"
               >
                 {isLoading ? (
                   <>
-                    <Loader className="w-4 h-4 animate-spin" />
+                    <Loader className="w-3 h-3 animate-spin" />
                     Sending...
                   </>
                 ) : (
@@ -241,9 +241,9 @@ export default function ContactModal({ isOpen, onClose }) {
 
           {/* Contact Info - Only show when not success */}
           {!success && (
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <p className="text-xs text-gray-600 font-semibold mb-3">Quick Contact</p>
-              <div className="space-y-2">
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-xs text-gray-600 font-semibold mb-2">Quick Contact</p>
+              <div className="space-y-1.5">
                 <a href="tel:+441234567890" className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition text-xs">
                   <Phone className="w-4 h-4 flex-shrink-0" />
                   <span>+44 7926 999 783</span>
