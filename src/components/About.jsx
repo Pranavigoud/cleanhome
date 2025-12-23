@@ -245,25 +245,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-10 sm:py-14 md:py-20 lg:py-28 relative overflow-hidden" style={{ backgroundColor: '#0D6B7D' }}>
-        <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-            Ready to Experience LOKSAR?
-          </h2>
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white text-opacity-90 mb-6 sm:mb-8 px-2">
-            Join thousands of happy homeowners who trust us with their homes
-          </p>
-          <Link
-            to="/"
-            className="inline-block bg-white font-bold px-6 sm:px-8 md:px-10 lg:px-12 py-2.5 sm:py-3 md:py-4 rounded-full hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg text-sm sm:text-base md:text-lg font-semibold"
-            style={{ color: '#0D6B7D' }}
-          >
-            Book Now
-          </Link>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-8 sm:py-10 md:py-12">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
