@@ -10,11 +10,11 @@ export default function WelcomeModal({ isOpen, onClose, onBack, onSubmit, userNa
   };
 
   const handleDetailSubmit = (detailData) => {
-    onSubmit(detailData);
+    // Return the promise here too
+    return onSubmit(detailData);
   };
 
   const handleDetailClose = () => {
-    // Close entire flow when detail modal is submitted/closed
     setShowDetailModal(false);
     onClose();
   };
@@ -22,17 +22,15 @@ export default function WelcomeModal({ isOpen, onClose, onBack, onSubmit, userNa
   const handleDetailBack = () => {
     setShowDetailModal(false);
   };
+  
   if (!isOpen && !showDetailModal) return null;
 
   return (
     <>
       {isOpen && !showDetailModal && (
         <div className="fixed inset-0 bg-black/50 bg-opacity-30 flex items-center justify-center z-50 p-4">
-          {/* Modal Container */}
           <div className="bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden">
-            {/* Header with Progress */}
             <div className="bg-white border-b border-gray-200 p-5 sm:p-6">
-              {/* Progress Bar */}
               <div className="mb-6 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-blue-500 transition-all duration-700 ease-out rounded-full"
@@ -40,7 +38,6 @@ export default function WelcomeModal({ isOpen, onClose, onBack, onSubmit, userNa
                 ></div>
               </div>
 
-              {/* Close Button */}
               <div className="flex justify-end">
                 <button
                   onClick={onClose}
@@ -51,19 +48,15 @@ export default function WelcomeModal({ isOpen, onClose, onBack, onSubmit, userNa
               </div>
             </div>
 
-            {/* Content Section */}
             <div className="p-5 sm:p-6">
-              {/* Title */}
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                 Welcome back, {userName}
               </h2>
 
-              {/* Description Text */}
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
-                It looks like you've used Bark before. Submit your request now and we'll help you log in to view your matches.
+                It looks like you've used us before. Submit your request now and we'll help you log in to view your matches.
               </p>
 
-              {/* Buttons */}
               <div className="flex gap-3 mb-4">
                 <button
                   onClick={onBack}
@@ -79,7 +72,6 @@ export default function WelcomeModal({ isOpen, onClose, onBack, onSubmit, userNa
                 </button>
               </div>
 
-              {/* Footer Text */}
               <p className="text-center text-xs text-gray-500">
                 By clicking continue, you confirm your agreement to our{' '}
                 <a href="#" className="text-blue-500 hover:underline">
@@ -95,7 +87,6 @@ export default function WelcomeModal({ isOpen, onClose, onBack, onSubmit, userNa
         </div>
       )}
 
-      {/* Request Detail Modal */}
       <RequestDetailModal
         isOpen={showDetailModal}
         onClose={handleDetailClose}

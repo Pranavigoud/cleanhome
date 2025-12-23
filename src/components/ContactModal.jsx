@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Mail, Phone, MapPin, Loader } from 'lucide-react';
+import { API_BASE_URL } from '../config';
 
 export default function ContactModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -79,11 +80,19 @@ export default function ContactModal({ isOpen, onClose }) {
     setIsLoading(true);
 
     try {
-      // Simulating API call - replace with actual backend endpoint
-      console.log('Contact form submitted:', formData);
-      
-      // Simulate delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch(`${API_BASE_URL}/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message');
+      }
       
       setSuccess(true);
       setFormData({
@@ -100,7 +109,9 @@ export default function ContactModal({ isOpen, onClose }) {
         onClose();
       }, 2000);
     } catch (err) {
+      console.error(err);
       setError('Failed to send message. Please try again.');
+    } finally {
       setIsLoading(false);
     }
   };

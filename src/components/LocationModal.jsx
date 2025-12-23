@@ -5,42 +5,39 @@ export default function LocationModal({ isOpen, onClose, onBack, onContinue, onS
   const [location, setLocation] = useState('');
   const [error, setError] = useState('');
 
-  const isValidLocation = (value) => {
-    const trimmed = value.trim();
-    if (!trimmed) return false;
+  // Validation Logic
+  const leicesterAreas = [
+    'LE1', 'LE2', 'LE3', 'LE4', 'LE5', 'LE6', 'LE7', 'LE8', 'LE9', 'LE10', 'LE11', 'LE12', 'LE13', 'LE14', 'LE15', 'LE16', 'LE17', 'LE18', 'LE19',
+    'Leicester', 'Leicestershire', 'Loughborough', 'Hinckley', 'Market Harborough', 'Coalville', 'Ashby', 'Melton'
+  ];
+
+  const validateLocation = (input) => {
+    const upperInput = input.toUpperCase().trim();
+    // Check if input contains any of the LE prefixes or town names
+    return leicesterAreas.some(area => upperInput.includes(area.toUpperCase()));
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setLocation(value);
     
-    // Check minimum length
-    if (trimmed.length < 2) return false;
-    
-    // Check if it contains at least one letter
-    if (!/[a-zA-Z]/.test(trimmed)) return false;
-    
-    // UK postcode pattern or town name
-    const postcodePattern = /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/i; // UK postcode format
-    const townPattern = /^[a-zA-Z\s'-]+$/; // Town name format (letters, spaces, hyphens, apostrophes)
-    
-    return postcodePattern.test(trimmed) || townPattern.test(trimmed);
+    // Clear error if valid, or show error if user is typing something clearly wrong (optional, usually better to validate on submit)
+    if (error) setError('');
   };
 
   const handleContinue = () => {
     if (!location.trim()) {
-      setError('Please enter a valid town or postcode');
+      setError('Please enter a location');
       return;
     }
     
-    if (!isValidLocation(location)) {
-      setError('Please enter a valid town or postcode');
+    if (!validateLocation(location)) {
+      setError('Sorry, we currently only serve Leicester and surrounding areas (LE postcodes).');
       return;
     }
     
     setError('');
-    // Show success modal instead of calling onContinue directly
     onShowSuccess({ location: location.trim() });
-  };
-
-  const handleInputChange = (e) => {
-    setLocation(e.target.value);
-    if (error) setError('');
   };
 
   if (!isOpen) return null;
@@ -93,13 +90,16 @@ export default function LocationModal({ isOpen, onClose, onBack, onContinue, onS
               <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0" />
               <input
                 type="text"
-                placeholder="Enter your postcode or town"
+                placeholder="Enter postcode (e.g. LE1)"
                 value={location}
                 onChange={handleInputChange}
                 onKeyPress={(e) => e.key === 'Enter' && handleContinue()}
                 className="bg-transparent outline-none flex-1 text-gray-800 placeholder-gray-400 text-sm sm:text-base"
               />
             </div>
+            <p className="text-xs text-gray-400 mt-2">
+              We currently serve Leicester and surrounding LE postcodes.
+            </p>
           </div>
 
           {/* Buttons */}
