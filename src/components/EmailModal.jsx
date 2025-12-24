@@ -25,22 +25,18 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
       setError('Please enter your full name');
       return;
     }
-
     if (!email.trim()) {
       setError('Please enter a valid email address');
       return;
     }
-
     if (!isValidEmail(email)) {
       setError('Please enter a valid email address');
       return;
     }
-
     if (!phone.trim()) {
       setError('Please enter a valid phone number');
       return;
     }
-
     if (!isValidPhone(phone)) {
       setError('Please enter a valid phone number (at least 10 digits)');
       return;
@@ -51,8 +47,9 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
     setShowWelcome(true);
   };
 
-  const handleWelcomeSubmit = () => {
-    onContinue(userInfo);
+  const handleWelcomeSubmit = (detailData) => {
+    // Return the promise so the child modal can await it
+    return onContinue({ ...userInfo, ...detailData });
   };
 
   const handleWelcomeBack = () => {
@@ -61,6 +58,7 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
 
   const handleWelcomeClose = () => {
     setShowWelcome(false);
+    onClose(); // Ensure we close the parent modal too
   };
 
   const handleInputChange = (field, value) => {
@@ -76,19 +74,14 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
     <>
       {isOpen && !showWelcome && (
         <div className="fixed inset-0 bg-black/50 bg-opacity-30 flex items-center justify-center z-50 p-4">
-          {/* Modal Container */}
           <div className="bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden">
-            {/* Header with Progress */}
             <div className="bg-white border-b border-gray-200 p-5 sm:p-6">
-              {/* Progress Bar */}
               <div className="mb-6 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-blue-500 transition-all duration-700 ease-out rounded-full"
                   style={{ width: `${(currentStep / totalSteps) * 100}%` }}
                 ></div>
               </div>
-
-              {/* Title with Close Button */}
               <div className="flex justify-between items-start gap-3">
                 <h2 className="text-lg sm:text-xl font-bold text-gray-900 flex-1">
                   Enter your details to receive quotes
@@ -102,16 +95,13 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
               </div>
             </div>
 
-            {/* Content Section */}
             <div className="p-5 sm:p-6">
-              {/* Error Message */}
               {error && (
                 <div className="mb-4 bg-red-100 text-red-600 px-4 py-3 rounded-lg text-sm font-medium">
                   {error}
                 </div>
               )}
 
-              {/* Full Name Input */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                 <div className="flex items-center gap-3 bg-gray-50 px-4 py-3 rounded-lg border border-gray-200 focus-within:border-blue-500 focus-within:bg-white transition">
@@ -126,7 +116,6 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
                 </div>
               </div>
 
-              {/* Email Input */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
                 <div className="flex items-center gap-3 bg-gray-50 px-4 py-3 rounded-lg border border-gray-200 focus-within:border-blue-500 focus-within:bg-white transition">
@@ -142,7 +131,6 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
                 </div>
               </div>
 
-              {/* Phone Number Input */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
                 <div className="flex items-center gap-3 bg-gray-50 px-4 py-3 rounded-lg border border-gray-200 focus-within:border-blue-500 focus-within:bg-white transition">
@@ -158,7 +146,6 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
                 </div>
               </div>
 
-              {/* Buttons */}
               <div className="flex gap-3">
                 <button
                   onClick={onBack}
@@ -178,7 +165,6 @@ export default function EmailModal({ isOpen, onClose, onBack, onContinue, curren
         </div>
       )}
 
-      {/* Welcome Modal */}
       <WelcomeModal
         isOpen={showWelcome}
         onClose={handleWelcomeClose}
