@@ -81,7 +81,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 sm:gap-3">
                 <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-teal-400 mt-0.5 flex-shrink-0" />
-                <a href="tel:+44 7926999783" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm break-all">
+                <a href="tel:+447926999783" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm break-all">
                   +44 7926 999 783
                 </a>
               </li>
@@ -110,7 +110,7 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex gap-3 sm:gap-4">
               <a
-                href="https://wa.me/7926999783"
+                href="https://wa.me/447926999783"
                 className="text-gray-400 hover:text-teal-400 transition-colors"
                 aria-label="WhatsApp"
                 target="_blank"

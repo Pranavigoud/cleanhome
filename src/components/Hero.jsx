@@ -190,14 +190,27 @@ export default function Hero() {
              <div className="relative w-full">
               <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-teal-600 rounded-3xl overflow-hidden shadow-2xl relative h-64 sm:h-80 lg:h-96 flex items-center justify-center p-6 sm:p-8">
                 <div className="relative w-full h-full flex flex-col items-center justify-center">
-                  <span className="text-white text-9xl opacity-20">✨</span>
-                  <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 bg-white rounded-2xl shadow-lg px-3 sm:px-4 py-2 sm:py-3 flex items-center gap-2">
-                    <span className="text-xl sm:text-2xl">♻️</span>
-                    <div>
-                      <p className="font-bold text-gray-800 text-xs sm:text-sm">Products</p>
-                      <p className="text-gray-600 text-xs">100% Eco-Friendly</p>
-                    </div>
-                  </div>
+                  <svg className="w-full h-full max-w-xs" viewBox="0 0 300 300" fill="none">
+                    {/* Two professionals with cleaning supplies illustration */}
+                    {/* Left person */}
+                    <circle cx="80" cy="80" r="25" fill="#F3E8FF" />
+                    <rect x="65" y="110" width="30" height="50" fill="#FFE4C4" rx="5" />
+                    <rect x="55" y="160" width="15" height="40" fill="#FFE4C4" />
+                    <rect x="90" y="160" width="15" height="40" fill="#FFE4C4" />
+
+                    {/* Right person */}
+                    <circle cx="220" cy="80" r="25" fill="#F3E8FF" />
+                    <rect x="205" y="110" width="30" height="50" fill="#FFE4C4" rx="5" />
+                    <rect x="195" y="160" width="15" height="40" fill="#FFE4C4" />
+                    <rect x="230" y="160" width="15" height="40" fill="#FFE4C4" />
+
+                    {/* Cleaning supplies */}
+                    <rect x="40" y="140" width="8" height="80" fill="#4A90E2" />
+                    <circle cx="50" cy="170" r="15" fill="#FFD700" />
+
+                    <rect x="252" y="140" width="8" height="80" fill="#FFD700" />
+                    <circle cx="262" cy="170" r="15" fill="#4A90E2" />
+                  </svg>
                 </div>
               </div>
             </div>
