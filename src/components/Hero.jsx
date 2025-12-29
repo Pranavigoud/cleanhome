@@ -11,6 +11,7 @@ import SupplyMaterialsModal from './SupplyMaterialsModal';
 import HiringDecisionModal from './HiringDecisionModal';
 import LocationModal from './LocationModal';
 import EmailModal from './EmailModal';
+import AcknowledgementModal from './AcknowledgementModal';
 import { API_BASE_URL } from '../config';
 
 export default function Hero() {
@@ -25,6 +26,7 @@ export default function Hero() {
   const [isHiringDecisionModalOpen, setIsHiringDecisionModalOpen] = useState(false);
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [isAcknowledgementModalOpen, setIsAcknowledgementModalOpen] = useState(false);
   
   // Data States
   const [propertyData, setPropertyData] = useState(null);
@@ -56,6 +58,7 @@ export default function Hero() {
     setIsHiringDecisionModalOpen(false);
     setIsLocationModalOpen(false);
     setIsEmailModalOpen(false);
+    setIsAcknowledgementModalOpen(false);
   };
 
   // ... (Keep existing handleShow/handleBack functions identical to previous version)
@@ -145,6 +148,7 @@ export default function Hero() {
     }
     
     setIsEmailModalOpen(false);
+    setIsAcknowledgementModalOpen(true);
   };
 
   const handleLocationContinue = (data) => {
@@ -232,6 +236,9 @@ export default function Hero() {
       
       {/* Email Modal now initiates the Welcome -> RequestDetail flow */}
       <EmailModal isOpen={isEmailModalOpen} onClose={handlePropertyModalClose} onBack={handleEmailBack} onContinue={handleEmailContinue} currentStep={11} totalSteps={12} />
+
+      {/* Acknowledgement Modal */}
+      <AcknowledgementModal isOpen={isAcknowledgementModalOpen} onClose={handlePropertyModalClose} />
     </section>
   );
 }

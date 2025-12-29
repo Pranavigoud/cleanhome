@@ -26,6 +26,7 @@ import HiringDecisionModal from './HiringDecisionModal';
 import LocationModal from './LocationModal';
 import EmailModal from './EmailModal';
 import WelcomeModal from './WelcomeModal';
+import AcknowledgementModal from './AcknowledgementModal';
 import { API_BASE_URL } from '../config';
 
 export default function Services() {
@@ -54,6 +55,7 @@ export default function Services() {
   const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
   const [isGardeningWelcomeModalOpen, setIsGardeningWelcomeModalOpen] = useState(false);
+  const [isAcknowledgementModalOpen, setIsAcknowledgementModalOpen] = useState(false);
 
   // States for Data
   const [propertyData, setPropertyData] = useState(null);
@@ -107,6 +109,7 @@ export default function Services() {
     setIsLocationModalOpen(false);
     setIsEmailModalOpen(false);
     setIsGardeningWelcomeModalOpen(false);
+    setIsAcknowledgementModalOpen(false);
     setCurrentGardeningStep(0);
   };
 
@@ -165,7 +168,11 @@ export default function Services() {
       if(response.ok) console.log('Cleaning booking submitted');
     } catch (error) { console.error('Error:', error); }
 
-    handlePropertyModalClose();
+    setIsEmailModalOpen(false);
+    // Add a small delay to ensure RequestDetailModal closes before AcknowledgementModal opens
+    setTimeout(() => {
+      setIsAcknowledgementModalOpen(true);
+    }, 300);
   };
 
   const services = [
@@ -271,11 +278,22 @@ export default function Services() {
             console.error('Error submitting gardening:', error);
           }
 
-          handlePropertyModalClose();
+          // Close RequestDetailModal first, then AcknowledgementModal will appear
+          setIsGardeningWelcomeModalOpen(false);
+          // Add a small delay to ensure RequestDetailModal closes before AcknowledgementModal opens
+          setTimeout(() => {
+            setIsAcknowledgementModalOpen(true);
+          }, 300);
         }}
         userName={gardeningEmailData?.name || 'User'}
         currentStep={12}
         totalSteps={12}
+      />
+
+      {/* Acknowledgement Modal - Used for both Cleaning and Gardening */}
+      <AcknowledgementModal
+        isOpen={isAcknowledgementModalOpen}
+        onClose={handlePropertyModalClose}
       />
     </section>
   );
