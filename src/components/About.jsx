@@ -88,7 +88,7 @@ export default function About() {
               About <span style={{ color: '#0D6B7D' }}>LOKSAR</span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto px-3 sm:px-0">
-              Revolutionizing home care with professional, eco-friendly, and reliable cleaning and gardening services across India.
+              Revolutionizing home care with professional, eco-friendly, and reliable cleaning and gardening services across Leicester, UK.
             </p>
           </div>
         </div>

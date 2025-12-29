@@ -185,7 +185,7 @@ export default function Hero() {
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white flex items-center justify-center text-white font-bold text-xs sm:text-sm">R</div>
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-gray-700 font-bold text-xs sm:text-sm">+2k</div>
               </div>
-              <p className="text-gray-700 font-medium text-xs sm:text-sm">Happy customers across India</p>
+              <p className="text-gray-700 font-medium text-xs sm:text-sm">Happy customers across Leicester, UK</p>
             </div>
           </div>
           {/* Illustration... */}
