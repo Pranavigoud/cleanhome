@@ -71,7 +71,7 @@ export default function About() {
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
               <img src={logo} alt="Mechvex" className="h-10 sm:h-12 w-auto" />
-              <span className="text-xl sm:text-2xl font-bold" style={{ color: '#0D6B7D' }}>Mechvex</span>
+              {/* <span className="text-xl sm:text-2xl font-bold" style={{ color: '#0D6B7D' }}>Mechvex</span> */}
             </Link>
             <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium text-xs sm:text-sm transition">
               Back to Home

@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="col-span-1">
             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
               <img src={logo} alt="Mechvex" className="h-8 sm:h-10 w-auto" />
-              <span className="text-xl sm:text-2xl font-bold text-white">Mechvex</span>
+              {/* <span className="text-xl sm:text-2xl font-bold text-white">Mechvex</span> */}
             </div>
             <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
               Professional home cleaning and gardening services tailored for modern living.

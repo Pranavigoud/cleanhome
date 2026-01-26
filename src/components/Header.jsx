@@ -13,7 +13,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
             <img src={logo} alt="Mechvex" className="h-12 w-auto" />
-            <span className="text-2xl font-bold" style={{ color: '#0D6B7D' }}>Mechvex</span>
+            {/* <span className="text-2xl font-bold" style={{ color: '#0D6B7D' }}>Mechvex</span> */}
           </Link>
 
           {/* Navigation Menu - Desktop */}
