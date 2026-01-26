@@ -37,7 +37,7 @@ export default function Testimonials() {
       id: 1,
       name: 'David Smith',
       location: 'Leicester',
-      quote: 'The team was punctual and very professional. My kitchen looks brand new! Highly recommend Loksar.',
+      quote: 'The team was punctual and very professional. My kitchen looks brand new! Highly recommend Mechvex.',
       initials: 'P',
       rating: 5,
     },

@@ -54,7 +54,7 @@ export default function WhyChoose() {
                   Why choose
                 </p>
                 <h3 className="text-teal-100 text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">
-                  LOKSAR
+                  Mechvex
                 </h3>
 
                 {/* Plant Illustration */}
@@ -105,7 +105,7 @@ export default function WhyChoose() {
           {/* Right Side - Features List */}
           <div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-              Why Choose Loksar?
+              Why Choose Mechvex?
             </h2>
 
             <div className="space-y-4 sm:space-y-6 md:space-y-8">

@@ -12,8 +12,8 @@ export default function Header() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <img src={logo} alt="LOKSAR" className="h-12 w-auto" />
-            <span className="text-2xl font-bold" style={{ color: '#0D6B7D' }}>LOKSAR</span>
+            <img src={logo} alt="Mechvex" className="h-12 w-auto" />
+            <span className="text-2xl font-bold" style={{ color: '#0D6B7D' }}>Mechvex</span>
           </Link>
 
           {/* Navigation Menu - Desktop */}

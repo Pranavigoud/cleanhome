@@ -40,7 +40,7 @@ export default function About() {
       id: 1,
       name: 'Rajesh Kumar',
       position: 'Founder & CEO',
-      bio: 'With 15+ years in the cleaning industry, Rajesh founded LOKSAR to revolutionize home care.',
+      bio: 'With 15+ years in the cleaning industry, Rajesh founded Mechvex to revolutionize home care.',
     },
     {
       id: 2,
@@ -70,8 +70,8 @@ export default function About() {
         <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 md:py-4">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
-              <img src={logo} alt="LOKSAR" className="h-10 sm:h-12 w-auto" />
-              <span className="text-xl sm:text-2xl font-bold" style={{ color: '#0D6B7D' }}>LOKSAR</span>
+              <img src={logo} alt="Mechvex" className="h-10 sm:h-12 w-auto" />
+              <span className="text-xl sm:text-2xl font-bold" style={{ color: '#0D6B7D' }}>Mechvex</span>
             </Link>
             <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium text-xs sm:text-sm transition">
               Back to Home
@@ -85,7 +85,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-gray-900">
-              About <span style={{ color: '#0D6B7D' }}>LOKSAR</span>
+              About <span style={{ color: '#0D6B7D' }}>Mechvex</span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto px-3 sm:px-0">
               Revolutionizing home care with professional, eco-friendly, and reliable cleaning and gardening services across Leicester, UK.
@@ -103,13 +103,13 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                LOKSAR was founded with a simple mission: to make professional home cleaning and gardening services accessible and affordable for every household in India.
+                Mechvex Software is a technology-driven software company focused on building scalable, reliable, and intelligent digital solutions. We help businesses transform ideas into high-quality software through clean engineering, modern technologies, and a results-oriented approach.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                What started as a small team of passionate cleaners has grown into a trusted network of professionals serving thousands of happy customers across major Indian cities. We believe that a clean home and a beautiful garden are the foundation of a happy life.
+                Our mission is to deliver cutting-edge software solutions that empower businesses to achieve their goals with confidence and efficiency. With a dedicated team of experienced engineers and architects, we combine technical expertise with innovative thinking to create solutions that drive real business value.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                Today, LOKSAR stands as a beacon of quality, reliability, and sustainability in the home care industry, setting new standards through innovation, professionalism, and customer-centric services.
+                Today, Mechvex stands as a trusted partner for businesses seeking to innovate and transform through technology, setting new standards through clean code, modern architecture, and customer-centric development.
               </p>
             </div>
             <div className="bg-gradient-to-br from-teal-400 via-teal-500 to-teal-600 rounded-3xl h-56 sm:h-72 md:h-80 lg:h-96 shadow-2xl flex items-center justify-center">
@@ -219,7 +219,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 sm:mb-4">
-              Why Choose LOKSAR?
+              Why Choose Mechvex?
             </h2>
           </div>
 
@@ -249,7 +249,7 @@ export default function About() {
       <footer className="bg-slate-900 text-white py-8 sm:py-10 md:py-12">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-400 text-xs sm:text-sm">
-            © 2024 Loksar Professional Cleaning. All rights reserved.
+            © 2024 Mechvex Professional Cleaning. All rights reserved.
           </p>
         </div>
       </footer>

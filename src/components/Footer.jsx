@@ -24,8 +24,8 @@ export default function Footer() {
           {/* Logo & Description */}
           <div className="col-span-1">
             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-              <img src={logo} alt="LOKSAR" className="h-8 sm:h-10 w-auto" />
-              <span className="text-xl sm:text-2xl font-bold text-white">LOKSAR</span>
+              <img src={logo} alt="Mechvex" className="h-8 sm:h-10 w-auto" />
+              <span className="text-xl sm:text-2xl font-bold text-white">Mechvex</span>
             </div>
             <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
               Professional home cleaning and gardening services tailored for modern living.
@@ -87,8 +87,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2 sm:gap-3">
                 <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-teal-400 mt-0.5 flex-shrink-0" />
-                <a href="mailto:loksarcleaningservice@gmail.com" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm break-all">
-                  loksarcleaningservice@gmail.com
+                <a href="mailto:contact@mechvex.com" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm break-all">
+                  contact@mechvex.com
                 </a>
               </li>
               <li className="flex items-start gap-2 sm:gap-3">
@@ -104,7 +104,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
             {/* Copyright */}
             <p className="text-gray-400 text-xs">
-              © 2025 Loksar Professional Cleaning. All rights reserved.
+              © 2025 Mechvex Professional Cleaning. All rights reserved.
             </p>
 
             {/* Social Links */}

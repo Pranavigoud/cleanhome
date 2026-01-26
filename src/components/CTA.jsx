@@ -29,7 +29,7 @@ export default function CTA() {
 
           {/* Subheading */}
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-opacity-90 mb-6 sm:mb-8 px-2 sm:px-0" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-            Join thousands of happy homeowners who trust Loksar for their home needs.
+            Join thousands of happy homeowners who trust Mechvex for their home needs.
           </p>
 
           {/* Button */}

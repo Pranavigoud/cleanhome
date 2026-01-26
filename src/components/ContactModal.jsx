@@ -259,9 +259,9 @@ export default function ContactModal({ isOpen, onClose }) {
                   <Phone className="w-4 h-4 flex-shrink-0" />
                   <span>+44 7926 999 783</span>
                 </a>
-                <a href="mailto:support@loksar.com" className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition text-xs">
+                <a href="mailto:support@mechvex.com" className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition text-xs">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span>loksarcleaningservice@gmail.com</span>
+                  <span>contact@mechvex.com</span>
                 </a>
                 <div className="flex items-start gap-2 text-gray-700 text-xs">
                   <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
